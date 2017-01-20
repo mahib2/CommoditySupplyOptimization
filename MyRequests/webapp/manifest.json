@@ -1,0 +1,189 @@
+{
+	"_version": "1.2.0",
+	"sap.app": {
+		"_version": "1.2.0",
+		"id": "${project.artifactId}",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "${project.version}"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"tags": {
+			"keywords": []
+		},
+		"ach": "sap",
+		"resources": "resources.json",
+		"dataSources": {
+			"mainService": {
+				"uri": "/CSODestination/CommodityManager/",
+				"type": "OData",
+				"settings": {
+					"annotations": [
+						"localAnnotations"
+					],
+					"localUri": "localService/metadata.xml"
+				}
+			},
+			"localAnnotations": {
+				"uri": "annotations/annotations.xml",
+				"type": "ODataAnnotation",
+				"settings": {
+					"localUri": "annotations/annotations.xml"
+				}
+			}
+		},
+		"offline": false,
+		"sourceTemplate": {
+			"id": "ui5template.smarttemplate",
+			"version": "1.40.12"
+		}
+	},
+	"sap.ui": {
+		"_version": "1.2.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_belize"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"resources": {
+			"js": [],
+			"css": []
+		},
+		"dependencies": {
+			"minUI5Version": "${sap.ui5.dist.version}",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.comp": {},
+				"sap.uxap": {},
+				"sap.suite.ui.generic.template": {}
+			},
+			"components": {}
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"@i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/i18n.properties"
+			},
+			"i18n|sap.suite.ui.generic.template.ListReport|Demands": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/ListReport/Demands/i18n.properties"
+			},
+			"i18n|sap.suite.ui.generic.template.ObjectPage|Demands": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/ObjectPage/Demands/i18n.properties"
+			},
+			"i18n|sap.suite.ui.generic.template.ObjectPage|Negotiations": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"uri": "i18n/ObjectPage/Negotiations/i18n.properties"
+			},
+			"": {
+				"dataSource": "mainService",
+				"settings": {
+					"defaultBindingMode": "TwoWay",
+					"defaultCountMode": "Inline",
+					"refreshAfterChange": false
+				}
+			}
+		},
+		"extends": {
+			"extensions": {
+				"sap.ui.controllerExtensions": {
+					"sap.suite.ui.generic.template.ListReport.view.ListReport": {
+						"controllerName": "CSOSprintII.ext.controller.ListReportExt",
+						"sap.ui.generic.app": {
+							"Demands": {
+								"EntitySet": "Demands",
+								"Actions": {
+									"ActionDemands1": {
+										"id": "ActionDemands1button",
+										"text": "Send E-mail",
+										"press": "onClickActionDemands1"
+									}
+								}
+							}
+						}
+					}
+				},
+				"sap.ui.viewExtensions": {
+					"sap.suite.ui.generic.template.ListReport.view.ListReport": {
+						"ResponsiveTableColumnsExtension|Demands": {
+							"className": "sap.ui.core.Fragment",
+							"fragmentName": "CSOSprintII.ext.fragments.ListReportResponsiveTableColumns",
+							"type": "XML"
+						},
+						"ResponsiveTableCellsExtension|Demands": {
+							"className": "sap.ui.core.Fragment",
+							"fragmentName": "CSOSprintII.ext.fragments.ListReportResponsiveTableCells",
+							"type": "XML"
+						},
+						"SmartFilterBarControlConfigurationExtension|Demands": {
+							"className": "sap.ui.core.Fragment",
+							"fragmentName": "CSOSprintII.ext.fragment.Customfilter",
+							"type": "XML"
+						}
+					}
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		}
+	},
+	"sap.ui.generic.app": {
+		"_version": "1.1.0",
+		"pages": [
+			{
+				"entitySet": "Demands",
+				"component": {
+					"name": "sap.suite.ui.generic.template.ListReport",
+					"list": true,
+					"settings": {
+						"gridTable": false,
+						"multiSelect": true
+					}
+				},
+				"pages": [
+					{
+						"entitySet": "Demands",
+						"component": {
+							"name": "sap.suite.ui.generic.template.ObjectPage"
+						}
+					}
+				]
+			}
+		]
+	},
+	"sap.fiori": {
+		"_version": "1.1.0",
+		"registrationIds": [],
+		"archeType": "transactional"
+	},
+	"sap.platform.hcp": {
+		"_version": "1.2.0",
+		"uri": "webapp"
+	}
+}

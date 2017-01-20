@@ -1,0 +1,228 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="CommodityManager">
+<EntityType Name="Component">
+<Key>
+<PropertyRef Name="ComponentId"/>
+</Key>
+<Property Name="ComponentGroup" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="ComponentId" Type="Edm.Int64" Nullable="false"/>
+<Property Name="ComponentName" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="ComponentType" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="NegotiationCycle" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="OrgId" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<NavigationProperty Name="AwardHistoryDetails" Relationship="CommodityManager.Component_AwardHistory_One_One0" FromRole="Component" ToRole="AwardHistory"/>
+<NavigationProperty Name="DemandDetails" Relationship="CommodityManager.Component_Demand_One_One0" FromRole="Component" ToRole="Demand"/>
+<NavigationProperty Name="SupplierComponentsDetails" Relationship="CommodityManager.Component_SupplierComponents_One_Many0" FromRole="Component" ToRole="SupplierComponents"/>
+</EntityType>
+<EntityType Name="Demand">
+<Key>
+<PropertyRef Name="DemandId"/>
+</Key>
+<Property Name="BaselinePrice" Type="Edm.Double" Nullable="true"/>
+<Property Name="ComponentId" Type="Edm.Int64" Nullable="true"/>
+<Property Name="Currency" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="DemandId" Type="Edm.Int64" Nullable="false"/>
+<Property Name="DemandQty" Type="Edm.Double" Nullable="true"/>
+<Property Name="FiscalQuarter" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="FiscalYear" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="LastUpdated" Type="Edm.DateTime" Nullable="true"/>
+<Property Name="LastUpdatedBy" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="OrgId" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="TargetPrice" Type="Edm.Double" Nullable="true"/>
+<Property Name="UserName" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="baselineSpend" Type="Edm.String" sap:creatable="false" sap:updatable="false"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="overAllStatus" Type="Edm.String" sap:creatable="false" sap:updatable="false"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="responses" Type="Edm.String" sap:creatable="false" sap:updatable="false"/>
+<NavigationProperty Name="AwardHistoryDetails" Relationship="CommodityManager.Demand_AwardHistory_One_Many0" FromRole="Demand" ToRole="AwardHistory"/>
+<NavigationProperty Name="CommodityManagerDetails" Relationship="CommodityManager.Demand_CommodityManager_One_One0" FromRole="Demand" ToRole="CommodityManager"/>
+<NavigationProperty Name="ComponentDetails" Relationship="CommodityManager.Component_Demand_One_One0" FromRole="Demand" ToRole="Component"/>
+<NavigationProperty Name="NegotiationDetails" Relationship="CommodityManager.Demand_Negotiation_One_Many0" FromRole="Demand" ToRole="Negotiation"/>
+</EntityType>
+<EntityType Name="Negotiation">
+<Key>
+<PropertyRef Name="NegotiationId"/>
+</Key>
+<Property Name="AwardedPrice" Type="Edm.Double" Nullable="true"/>
+<Property Name="BaselinePrice" Type="Edm.Double" Nullable="true"/>
+<Property Name="Currency" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="DemandId" Type="Edm.Int64" Nullable="true"/>
+<Property Name="DemandQty" Type="Edm.Double" Nullable="true"/>
+<Property Name="DraftSplit" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="LeadTime" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="NegotiationId" Type="Edm.Int64" Nullable="false"/>
+<Property Name="PriceDateFrom" Type="Edm.DateTime" Nullable="true"/>
+<Property Name="PriceDateTo" Type="Edm.DateTime" Nullable="true"/>
+<Property Name="QuotedPrice" Type="Edm.Double" Nullable="true"/>
+<Property Name="RespondedAt" Type="Edm.DateTime" Nullable="true"/>
+<Property Name="RespondedBy" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Split" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="SupplierId" Type="Edm.Int64" Nullable="true"/>
+<Property xmlns:sap="http://www.sap.com/Protocols/SAPData" Name="status" Type="Edm.String" sap:creatable="false" sap:updatable="false"/>
+<NavigationProperty Name="DemandDetails" Relationship="CommodityManager.Demand_Negotiation_One_Many0" FromRole="Negotiation" ToRole="Demand"/>
+<NavigationProperty Name="NegotiationHistoryDetails" Relationship="CommodityManager.Negotiation_NegotiationHistory_One_Many0" FromRole="Negotiation" ToRole="NegotiationHistory"/>
+<NavigationProperty Name="SupplierDetails" Relationship="CommodityManager.Negotiation_Supplier_Many_One0" FromRole="Negotiation" ToRole="Supplier"/>
+</EntityType>
+<EntityType Name="CommodityManager">
+<Key>
+<PropertyRef Name="UserName"/>
+</Key>
+<Property Name="Name" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="OrgId" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="UserName" Type="Edm.String" Nullable="false" MaxLength="255"/>
+<NavigationProperty Name="DemandDetails" Relationship="CommodityManager.Demand_CommodityManager_One_One0" FromRole="CommodityManager" ToRole="Demand"/>
+</EntityType>
+<EntityType Name="NegotiationHistory">
+<Key>
+<PropertyRef Name="NegotiationLogId"/>
+</Key>
+<Property Name="Comments" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Currency" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="DemandQty" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="DraftSplit" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="LeadTime" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="NegotiationId" Type="Edm.Int64" Nullable="true"/>
+<Property Name="NegotiationLogId" Type="Edm.Int64" Nullable="false"/>
+<Property Name="QuotedPrice" Type="Edm.Double" Nullable="true"/>
+<Property Name="RespondedAt" Type="Edm.DateTime" Nullable="true"/>
+<Property Name="RespondedBy" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Split" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<NavigationProperty Name="NegotiationDetails" Relationship="CommodityManager.Negotiation_NegotiationHistory_One_Many0" FromRole="NegotiationHistory" ToRole="Negotiation"/>
+</EntityType>
+<EntityType Name="AwardHistory">
+<Key>
+<PropertyRef Name="DemandLogId"/>
+</Key>
+<Property Name="AwardPrice" Type="Edm.Double" Nullable="true"/>
+<Property Name="AwardSplit" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="CommodityManager" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="ComponentId" Type="Edm.Int64" Nullable="true"/>
+<Property Name="Currency" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="DemandId" Type="Edm.Int64" Nullable="true"/>
+<Property Name="DemandLogId" Type="Edm.Int64" Nullable="false"/>
+<Property Name="DemandQty" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="FiscalQuarter" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="FiscalYear" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="LeadTime" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="SupplierId" Type="Edm.Int64" Nullable="true"/>
+<NavigationProperty Name="ComponentDetails" Relationship="CommodityManager.Component_AwardHistory_One_One0" FromRole="AwardHistory" ToRole="Component"/>
+<NavigationProperty Name="DemandDetails" Relationship="CommodityManager.Demand_AwardHistory_One_Many0" FromRole="AwardHistory" ToRole="Demand"/>
+<NavigationProperty Name="SupplierDetails" Relationship="CommodityManager.AwardHistory_Supplier_Many_One0" FromRole="AwardHistory" ToRole="Supplier"/>
+</EntityType>
+<EntityType Name="Supplier">
+<Key>
+<PropertyRef Name="SupplierId"/>
+</Key>
+<Property Name="Contact" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Name" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="QualityIndex" Type="Edm.Int64" Nullable="true"/>
+<Property Name="Ranking" Type="Edm.Int64" Nullable="true"/>
+<Property Name="Region" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="SupplierId" Type="Edm.Int64" Nullable="false"/>
+<NavigationProperty Name="AwardHistoryDetails" Relationship="CommodityManager.AwardHistory_Supplier_Many_One0" FromRole="Supplier" ToRole="AwardHistory"/>
+<NavigationProperty Name="NegotiationDetails" Relationship="CommodityManager.Negotiation_Supplier_Many_One0" FromRole="Supplier" ToRole="Negotiation"/>
+<NavigationProperty Name="SupplierComponentsDetails" Relationship="CommodityManager.Supplier_SupplierComponents_One_Many0" FromRole="Supplier" ToRole="SupplierComponents"/>
+</EntityType>
+<EntityType Name="SupplierComponents">
+<Key>
+<PropertyRef Name="Id"/>
+</Key>
+<Property Name="ComponentId" Type="Edm.Int64" Nullable="true"/>
+<Property Name="Id" Type="Edm.Int64" Nullable="false"/>
+<Property Name="SupplierId" Type="Edm.Int64" Nullable="true"/>
+<NavigationProperty Name="ComponentDetails" Relationship="CommodityManager.Component_SupplierComponents_One_Many0" FromRole="SupplierComponents" ToRole="Component"/>
+<NavigationProperty Name="SupplierDetails" Relationship="CommodityManager.Supplier_SupplierComponents_One_Many0" FromRole="SupplierComponents" ToRole="Supplier"/>
+</EntityType>
+<Association Name="Component_SupplierComponents_One_Many0">
+<End Type="CommodityManager.Component" Multiplicity="1" Role="Component"/>
+<End Type="CommodityManager.SupplierComponents" Multiplicity="*" Role="SupplierComponents"/>
+</Association>
+<Association Name="Negotiation_NegotiationHistory_One_Many0">
+<End Type="CommodityManager.Negotiation" Multiplicity="1" Role="Negotiation"/>
+<End Type="CommodityManager.NegotiationHistory" Multiplicity="*" Role="NegotiationHistory"/>
+</Association>
+<Association Name="Negotiation_Supplier_Many_One0">
+<End Type="CommodityManager.Negotiation" Multiplicity="*" Role="Negotiation"/>
+<End Type="CommodityManager.Supplier" Multiplicity="1" Role="Supplier"/>
+</Association>
+<Association Name="AwardHistory_Supplier_Many_One0">
+<End Type="CommodityManager.AwardHistory" Multiplicity="*" Role="AwardHistory"/>
+<End Type="CommodityManager.Supplier" Multiplicity="1" Role="Supplier"/>
+</Association>
+<Association Name="Demand_CommodityManager_One_One0">
+<End Type="CommodityManager.Demand" Multiplicity="1" Role="Demand"/>
+<End Type="CommodityManager.CommodityManager" Multiplicity="1" Role="CommodityManager"/>
+</Association>
+<Association Name="Component_Demand_One_One0">
+<End Type="CommodityManager.Component" Multiplicity="1" Role="Component"/>
+<End Type="CommodityManager.Demand" Multiplicity="1" Role="Demand"/>
+</Association>
+<Association Name="Component_AwardHistory_One_One0">
+<End Type="CommodityManager.Component" Multiplicity="1" Role="Component"/>
+<End Type="CommodityManager.AwardHistory" Multiplicity="1" Role="AwardHistory"/>
+</Association>
+<Association Name="Supplier_SupplierComponents_One_Many0">
+<End Type="CommodityManager.Supplier" Multiplicity="1" Role="Supplier"/>
+<End Type="CommodityManager.SupplierComponents" Multiplicity="*" Role="SupplierComponents"/>
+</Association>
+<Association Name="Demand_Negotiation_One_Many0">
+<End Type="CommodityManager.Demand" Multiplicity="1" Role="Demand"/>
+<End Type="CommodityManager.Negotiation" Multiplicity="*" Role="Negotiation"/>
+</Association>
+<Association Name="Demand_AwardHistory_One_Many0">
+<End Type="CommodityManager.Demand" Multiplicity="1" Role="Demand"/>
+<End Type="CommodityManager.AwardHistory" Multiplicity="*" Role="AwardHistory"/>
+</Association>
+<EntityContainer Name="CommodityManagerContainer" m:IsDefaultEntityContainer="true">
+<EntitySet Name="Components" EntityType="CommodityManager.Component"/>
+<EntitySet Name="Demands" EntityType="CommodityManager.Demand"/>
+<EntitySet Name="Negotiations" EntityType="CommodityManager.Negotiation"/>
+<EntitySet Name="CommodityManagers" EntityType="CommodityManager.CommodityManager"/>
+<EntitySet Name="NegotiationHistorys" EntityType="CommodityManager.NegotiationHistory"/>
+<EntitySet Name="AwardHistorys" EntityType="CommodityManager.AwardHistory"/>
+<EntitySet Name="Suppliers" EntityType="CommodityManager.Supplier"/>
+<EntitySet Name="SupplierComponentss" EntityType="CommodityManager.SupplierComponents"/>
+<AssociationSet Name="Component_SupplierComponents_One_Many0Set" Association="CommodityManager.Component_SupplierComponents_One_Many0">
+<End EntitySet="Components" Role="Component"/>
+<End EntitySet="SupplierComponentss" Role="SupplierComponents"/>
+</AssociationSet>
+<AssociationSet Name="Negotiation_NegotiationHistory_One_Many0Set" Association="CommodityManager.Negotiation_NegotiationHistory_One_Many0">
+<End EntitySet="Negotiations" Role="Negotiation"/>
+<End EntitySet="NegotiationHistorys" Role="NegotiationHistory"/>
+</AssociationSet>
+<AssociationSet Name="Negotiation_Supplier_Many_One0Set" Association="CommodityManager.Negotiation_Supplier_Many_One0">
+<End EntitySet="Negotiations" Role="Negotiation"/>
+<End EntitySet="Suppliers" Role="Supplier"/>
+</AssociationSet>
+<AssociationSet Name="AwardHistory_Supplier_Many_One0Set" Association="CommodityManager.AwardHistory_Supplier_Many_One0">
+<End EntitySet="AwardHistorys" Role="AwardHistory"/>
+<End EntitySet="Suppliers" Role="Supplier"/>
+</AssociationSet>
+<AssociationSet Name="Demand_CommodityManager_One_One0Set" Association="CommodityManager.Demand_CommodityManager_One_One0">
+<End EntitySet="Demands" Role="Demand"/>
+<End EntitySet="CommodityManagers" Role="CommodityManager"/>
+</AssociationSet>
+<AssociationSet Name="Component_Demand_One_One0Set" Association="CommodityManager.Component_Demand_One_One0">
+<End EntitySet="Components" Role="Component"/>
+<End EntitySet="Demands" Role="Demand"/>
+</AssociationSet>
+<AssociationSet Name="Component_AwardHistory_One_One0Set" Association="CommodityManager.Component_AwardHistory_One_One0">
+<End EntitySet="Components" Role="Component"/>
+<End EntitySet="AwardHistorys" Role="AwardHistory"/>
+</AssociationSet>
+<AssociationSet Name="Supplier_SupplierComponents_One_Many0Set" Association="CommodityManager.Supplier_SupplierComponents_One_Many0">
+<End EntitySet="Suppliers" Role="Supplier"/>
+<End EntitySet="SupplierComponentss" Role="SupplierComponents"/>
+</AssociationSet>
+<AssociationSet Name="Demand_Negotiation_One_Many0Set" Association="CommodityManager.Demand_Negotiation_One_Many0">
+<End EntitySet="Demands" Role="Demand"/>
+<End EntitySet="Negotiations" Role="Negotiation"/>
+</AssociationSet>
+<AssociationSet Name="Demand_AwardHistory_One_Many0Set" Association="CommodityManager.Demand_AwardHistory_One_Many0">
+<End EntitySet="Demands" Role="Demand"/>
+<End EntitySet="AwardHistorys" Role="AwardHistory"/>
+</AssociationSet>
+</EntityContainer>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>

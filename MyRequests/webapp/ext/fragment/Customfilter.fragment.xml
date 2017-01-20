@@ -1,0 +1,11 @@
+<core:FragmentDefinition xmlns="sap.m" xmlns:smartfilterbar="sap.ui.comp.smartfilterbar" xmlns:core="sap.ui.core">
+	               <smartfilterbar:ControlConfiguration key="ComponentDetails.NegotiationCycle" index="1" label="Negotiation Cycle" visibleInAdvancedArea="true">
+                              </smartfilterbar:ControlConfiguration>
+               <smartfilterbar:ControlConfiguration key="ComponentDetails.OrgId" index="1" label="Org Id" visibleInAdvancedArea="true" >
+                              </smartfilterbar:ControlConfiguration>
+               <smartfilterbar:ControlConfiguration key="ComponentDetails.ComponentGroup" index="1" label="Component Group" visibleInAdvancedArea="true" >
+                              </smartfilterbar:ControlConfiguration>
+               <smartfilterbar:ControlConfiguration key="overAllStatus" index="1" label="Status" visibleInAdvancedArea="true">
+               </smartfilterbar:ControlConfiguration>
+
+</core:FragmentDefinition>

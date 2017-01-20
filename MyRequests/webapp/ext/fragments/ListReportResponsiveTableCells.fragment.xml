@@ -1,0 +1,13 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" controllerName="CSOSprintII.ext.controller.ListReportExt">
+    <!--  
+            <RatingIndicator value="{= ${Price} > 500 ? 1:5}" enabled="false"></RatingIndicator>
+    -->
+         <Text text="{parts:[
+        					{path:'BaselinePrice'},
+        					{path:'DemandQty'}
+        					],
+        					formatter: '.calculateSpend'}"></Text>
+        <Text text="{path:'NegotiationDetails',
+        					formatter: '.calculateStatus'}"></Text>
+         <!--   <Text text="{BaselinePrice}*{DemandQty}"></Text>-->
+ </core:FragmentDefinition>

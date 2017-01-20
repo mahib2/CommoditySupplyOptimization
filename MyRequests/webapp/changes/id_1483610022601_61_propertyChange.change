@@ -1,0 +1,29 @@
+{
+	"fileName": "id_1483610022601_61_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"reference": "CSOSprintII.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "enableAutoBinding",
+		"oldValue": false,
+		"newValue": true
+	},
+	"selector": {
+		"id": "CSOSprintII::sap.suite.ui.generic.template.ListReport.view.ListReport::Demands--listReport",
+		"type": "sap.ui.comp.smarttable.SmartTable",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR",
+	"texts": {},
+	"namespace": "apps/CSOSprintII/changes/",
+	"creation": "2017-01-05T09:53:43.193Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": ""
+	}
+}
