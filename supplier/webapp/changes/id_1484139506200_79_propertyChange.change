@@ -1,0 +1,29 @@
+{
+	"fileName": "id_1484139506200_79_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"reference": "SupplierNegotiation.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "tableType",
+		"oldValue": "Table",
+		"newValue": "ResponsiveTable"
+	},
+	"selector": {
+		"id": "SupplierNegotiation::sap.suite.ui.generic.template.ListReport.view.ListReport::Negotiations--listReport",
+		"type": "sap.ui.comp.smarttable.SmartTable",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR",
+	"texts": {},
+	"namespace": "apps/SupplierNegotiation/changes/",
+	"creation": "2017-01-11T12:58:26.217Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": ""
+	}
+}

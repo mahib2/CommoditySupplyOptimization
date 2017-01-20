@@ -1,0 +1,29 @@
+{
+	"fileName": "id_1484209117355_76_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"reference": "SupplierNegotiation.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "editable",
+		"oldValue": true,
+		"newValue": false
+	},
+	"selector": {
+		"id": "SupplierNegotiation::sap.suite.ui.generic.template.ListReport.view.ListReport::Negotiations--listReport",
+		"type": "sap.ui.comp.smarttable.SmartTable",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR",
+	"texts": {},
+	"namespace": "apps/SupplierNegotiation/changes/",
+	"creation": "2017-01-12T08:18:37.372Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": ""
+	}
+}

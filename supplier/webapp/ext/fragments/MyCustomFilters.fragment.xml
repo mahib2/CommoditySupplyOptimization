@@ -1,0 +1,11 @@
+<core:FragmentDefinition
+        xmlns="sap.m"
+        xmlns:smartfilterbar="sap.ui.comp.smartfilterbar"
+        xmlns:core="sap.ui.core" controllerName="SupplierNegotiation.ext.controller.ListReportExt">
+    <!--<smartfilterbar:ControlConfiguration key="NegotiationId" index="1" label="Negotiation ID"-->
+    <!--                                     visibleInAdvancedArea="true">-->
+    <!--</smartfilterbar:ControlConfiguration>-->
+    <!--<smartfilterbar:ControlConfiguration key="BaselinePrice" index="1" label="Baseline Price"-->
+    <!--                                     visibleInAdvancedArea="true">-->
+    <!--</smartfilterbar:ControlConfiguration>-->
+</core:FragmentDefinition>
