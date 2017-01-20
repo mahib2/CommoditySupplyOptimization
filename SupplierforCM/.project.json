@@ -1,0 +1,71 @@
+{
+  "projectType": [
+    "sap.watt.uitools.ide.fiori",
+    "sap.watt.saptoolsets.fiori.project.ui5template.smartProject",
+    "sap.watt.saptoolsets.fiori.project.uiadaptation"
+  ],
+  "generation": [
+    {
+      "templateId": "ui5template.smarttemplate",
+      "templateVersion": "1.40.12",
+      "dateTimeStamp": "Wed, 04 Jan 2017 05:46:09 GMT"
+    },
+    {
+      "templateId": "uiadaptation.changespreviewjs",
+      "templateVersion": "0.0.0",
+      "dateTimeStamp": "Fri, 13 Jan 2017 04:51:39 GMT"
+    },
+    {
+      "templateId": "com.sap.webide.annotationmodeller.CreateAnnotationTemplate",
+      "templateVersion": "1.0.0",
+      "dateTimeStamp": "Wed, 04 Jan 2017 10:09:26 GMT"
+    },
+    {
+      "templateId": "uiadaptation.uiadaptationpanehtml",
+      "templateVersion": "0.0.0",
+      "dateTimeStamp": "Mon, 09 Jan 2017 06:27:03 GMT"
+    },
+    {
+      "templateId": "ui5template.listreportextension",
+      "templateVersion": "1.0.0",
+      "dateTimeStamp": "Thu, 12 Jan 2017 12:52:53 GMT"
+    }
+  ],
+  "translation": {
+    "translationDomain": "",
+    "supportedLanguages": "en,fr,de",
+    "defaultLanguage": "en",
+    "defaultI18NPropertyFile": "i18n.properties",
+    "resourceModelName": "i18n"
+  },
+  "uiadaptation": {
+    "layer": "VENDOR"
+  },
+  "mockpreview": {
+    "mockUri": "/CSODestinationSupplier/suppliers",
+    "metadataFilePath": "",
+    "loadJSONFiles": false,
+    "loadCustomRequests": false,
+    "mockRequestsFilePath": ""
+  },
+  "basevalidator": {
+    "services": {
+      "js": "fioriJsValidator",
+      "xml": "xmlValidator"
+    }
+  },
+  "codeCheckingTriggers": {
+    "notifyBeforePush": true,
+    "notifyBeforePushLevel": "Error",
+    "blockPush": false,
+    "blockPushLevel": "Error"
+  },
+  "hybrid": {
+    "fioriLPAppID": "HAT_MOBILE_APP-display"
+  },
+  "hcpdeploy": {
+    "account": "i322048sapdev",
+    "name": "supplierforcm",
+    "lastVersionWeTriedToDeploy": "1.0.0"
+  }
+}

@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+	<edmx:Reference Uri="/sap/bc/ui5_ui5/ui2/ushell/resources/sap/ushell/components/factsheet/vocabularies/UI.xml">
+		<edmx:Include Alias="UI" Namespace="com.sap.vocabularies.UI.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="/CSODestinationSupplier/suppliers/$metadata">
+		<edmx:Include Alias="suppliers.xsodata" Namespace="suppliers.xsodata"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/cs02/vocabularies/Org.OData.Aggregation.V1.xml">
+		<edmx:Include Alias="Aggregation" Namespace="Org.OData.Aggregation.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Capabilities.V1.xml">
+		<edmx:Include Alias="Capabilities" Namespace="Org.OData.Capabilities.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470974/Common.xml?api=v2">
+		<edmx:Include Alias="Common" Namespace="com.sap.vocabularies.Common.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="https://wiki.scn.sap.com/wiki/download/attachments/448470971/Communication.xml?api=v2">
+		<edmx:Include Alias="vCard" Namespace="com.sap.vocabularies.Communication.v1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Core.V1.xml">
+		<edmx:Include Alias="Core" Namespace="Org.OData.Core.V1"/>
+	</edmx:Reference>
+	<edmx:Reference Uri="http://docs.oasis-open.org/odata/odata/v4.0/errata03/os/complete/vocabularies/Org.OData.Measures.V1.xml">
+		<edmx:Include Alias="CQP" Namespace="Org.OData.Measures.V1"/>
+	</edmx:Reference>
+	<edmx:DataServices>
+		<Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="SupplierProject.suppliers.xsodata">
+			<!--===============================================================================
+                Entity Type from chosen collection 
+                ================================================================================-->
+			<!--<Annotations Target="suppliers.Supplier">-->
+			<!--	<Annotation Term="UI.Facets">-->
+			<!--		<Collection>-->
+			<!--			<Record Type="UI.CollectionFacet">-->
+			<!--				<PropertyValue Property="ID" String="GeneralInformation"/>-->
+			<!--				<PropertyValue Property="Label" String="{@i18n&gt;@GeneralInfoFacetLabel}"/>-->
+			<!--				<PropertyValue Property="Facets">-->
+			<!--					<Collection>-->
+			<!--						<Record Type="UI.ReferenceFacet">-->
+			<!--							<PropertyValue Property="Label" String="{@i18n&gt;@GeneralInfoFacetLabel}"/>-->
+			<!--							<PropertyValue Property="Target" AnnotationPath="@UI.Identification"/>-->
+			<!--						</Record>-->
+			<!--					</Collection>-->
+			<!--				</PropertyValue>-->
+			<!--			</Record>-->
+			<!--		</Collection>-->
+			<!--	</Annotation>-->
+			<!--	<Annotation Term="UI.HeaderInfo">-->
+			<!--		<Record>-->
+			<!--			<PropertyValue Property="TypeNamePlural" String="Suppliers"/>-->
+			<!--			<PropertyValue Property="TypeName" String="{@i18n&gt;@PRODUCT}"/>-->
+			<!--			<PropertyValue Property="Title">-->
+			<!--				<Record Type="UI.DataField">-->
+			<!--					<PropertyValue Property="Value" Path="SupplierId"/>-->
+			<!--					<PropertyValue Property="Label" String="{@i18n&gt;@PRODUCT}"/>-->
+			<!--				</Record>-->
+			<!--			</PropertyValue>-->
+			<!--		</Record>-->
+			<!--	</Annotation>-->
+			<!--	<Annotation Term="UI.PresentationVariant">-->
+			<!--		<Record Type="UI.PresentationVariantType">-->
+			<!--			<PropertyValue Property="Visualizations">-->
+			<!--				<Collection>-->
+			<!--					<AnnotationPath>@UI.LineItem</AnnotationPath>-->
+			<!--				</Collection>-->
+			<!--			</PropertyValue>-->
+			<!--			<PropertyValue Property="SortOrder">-->
+			<!--				<Collection>-->
+			<!--					<Record>-->
+			<!--						<PropertyValue Property="Property" PropertyPath="Ranking"/>-->
+			<!--						<PropertyValue Property="Descending" Bool="true"/>-->
+			<!--					</Record>-->
+			<!--				</Collection>-->
+			<!--			</PropertyValue>-->
+			<!--			<PropertyValue Property="GroupBy">-->
+			<!--				<Collection>-->
+			<!--					<PropertyPath>Ranking</PropertyPath>-->
+			<!--				</Collection>-->
+			<!--			</PropertyValue>-->
+			<!--		</Record>-->
+			<!--	</Annotation>-->
+			<!--	<Annotation Term="UI.SelectionFields">-->
+			<!--		<Collection>-->
+			<!--			<PropertyPath>SupplierId</PropertyPath>-->
+			<!--			<PropertyPath>Ranking</PropertyPath>-->
+			<!--		</Collection>-->
+			<!--	</Annotation>-->
+			<!--	<Annotation Term="UI.LineItem">-->
+			<!--		<Collection>-->
+			<!--			<Record Type="UI.DataField">-->
+			<!--				<PropertyValue Property="Value" Path="Contact"/>-->
+			<!--				<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>-->
+			<!--			</Record>-->
+			<!--		</Collection>-->
+			<!--	</Annotation>-->
+			<!--</Annotations>-->
+			<!--===============================================================================
+                Entity Type from chosen navigation property
+                ================================================================================-->
+			<Annotations Target="cso_supplier.Supplier">
+				<Annotation Term="UI.LineItem">
+					<Collection>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="SupplierId"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@SUPPLIER_ID}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="SupplierName"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+							<PropertyValue Property="Label" String="{@i18n&gt;@SUPPLIER_NAME}"/>
+						</Record>
+						<Record Type="UI.DataField">
+							<PropertyValue Property="Value" Path="Region"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+						<Record Type="UI.DataFieldForAnnotation">
+							<PropertyValue Property="Target" AnnotationPath="@UI.DataPoint#AreaChartQualifier"/>
+							<PropertyValue Property="Label" String="Rating"/>
+							<Annotation Term="UI.Importance" EnumMember="UI.ImportanceType/High"/>
+						</Record>
+					</Collection>
+				</Annotation>
+				<Annotation Term="UI.DataPoint" Qualifier="AreaChartQualifier">
+					<Record>
+						<PropertyValue Property="Title" String="Sales Price"/>
+						<PropertyValue Property="Value" Path="Ranking"/>
+						<PropertyValue Property="Visualization" EnumMember="UI.VisualizationType/Rating"/>
+						<PropertyValue Property="MinimumValue" Decimal="1.0"/>
+						<PropertyValue Property="MaximumValue" Decimal="5.0"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.HeaderInfo">
+					<Record Type="UI.HeaderInfoType">
+						<PropertyValue Property="Title">
+							<Record Type="UI.DataField">
+								<PropertyValue Property="Value" Path="SupplierId"/>
+							</Record>
+						</PropertyValue>
+						<PropertyValue Property="TypeName" String="Suppliers"/>
+						<PropertyValue Property="TypeNamePlural" String="Suppliers"/>
+					</Record>
+				</Annotation>
+				<Annotation Term="UI.SelectionFields">
+					<Collection>
+						<PropertyPath>Region</PropertyPath>
+						<PropertyPath>Ranking</PropertyPath>
+					</Collection>
+				</Annotation>
+			</Annotations>
+		</Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

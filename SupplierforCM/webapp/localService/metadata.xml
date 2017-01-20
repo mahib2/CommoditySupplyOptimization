@@ -1,0 +1,41 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx" Version="1.0">
+<edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="cso_supplier">
+<EntityType Name="Supplier">
+<Key>
+<PropertyRef Name="SupplierId"/>
+</Key>
+<Property Name="Contact" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="QualityIndex" Type="Edm.Int32" Nullable="true"/>
+<Property Name="Ranking" Type="Edm.Int32" Nullable="true"/>
+<Property Name="Region" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="SupplierId" Type="Edm.Int64" Nullable="false"/>
+<Property Name="SupplierName" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<NavigationProperty Name="ComponentDetails" Relationship="cso_supplier.Supplier_Component_One_Many0" FromRole="Supplier" ToRole="Component"/>
+</EntityType>
+<EntityType Name="Component">
+<Key>
+<PropertyRef Name="Id"/>
+</Key>
+<Property Name="ComponentName" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="ComponentType" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="Id" Type="Edm.Int64" Nullable="false"/>
+<Property Name="OrganizationID" Type="Edm.String" Nullable="true" MaxLength="255"/>
+<Property Name="SupplierId" Type="Edm.Int64" Nullable="true"/>
+<NavigationProperty Name="SupplierDetails" Relationship="cso_supplier.Supplier_Component_One_Many0" FromRole="Component" ToRole="Supplier"/>
+</EntityType>
+<Association Name="Supplier_Component_One_Many0">
+<End Type="cso_supplier.Supplier" Multiplicity="1" Role="Supplier"/>
+<End Type="cso_supplier.Component" Multiplicity="*" Role="Component"/>
+</Association>
+<EntityContainer Name="cso_supplierContainer" m:IsDefaultEntityContainer="true">
+<EntitySet Name="Suppliers" EntityType="cso_supplier.Supplier"/>
+<EntitySet Name="Components" EntityType="cso_supplier.Component"/>
+<AssociationSet Name="Supplier_Component_One_Many0Set" Association="cso_supplier.Supplier_Component_One_Many0">
+<End EntitySet="Suppliers" Role="Supplier"/>
+<End EntitySet="Components" Role="Component"/>
+</AssociationSet>
+</EntityContainer>
+</Schema>
+</edmx:DataServices>
+</edmx:Edmx>

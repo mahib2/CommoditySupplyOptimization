@@ -1,0 +1,53 @@
+{
+  "run": [
+    {
+      "filePath": "/webapp/test/flpSandbox.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [],
+      "hashParameter": "",
+      "backendSystem": [],
+      "_metadata": {
+        "id": 4356951,
+        "runnerId": "webapprunner",
+        "displayName": "Run flpSandbox.html 1",
+        "lastRunTimeStamp": 1484283097430
+      }
+    },
+    {
+      "filePath": "/webapp/test/flpSandbox.html",
+      "previewMode": 1,
+      "dataMode": 1,
+      "workspace": "withoutWorkspace",
+      "ui5ActiveVersion": null,
+      "ui5VerSource": null,
+      "isDefaultVersion": 0,
+      "urlParameters": [
+        {
+          "paramName": "",
+          "paramValue": ""
+        }
+      ],
+      "hashParameter": "",
+      "backendSystem": [
+        {
+          "source": "CSODestinationSupplier",
+          "destinations": "CSODestinationSupplier"
+        }
+      ],
+      "_metadata": {
+        "id": 2821413,
+        "runnerId": "webapprunner",
+        "displayName": "Run flpSandbox.html",
+        "lastRunTimeStamp": 1483942396030
+      }
+    }
+  ],
+  "hybrid": {
+    "dirty": true
+  }
+}

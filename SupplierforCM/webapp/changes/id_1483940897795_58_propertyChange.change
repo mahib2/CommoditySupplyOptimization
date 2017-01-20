@@ -1,0 +1,29 @@
+{
+	"fileName": "id_1483940897795_58_propertyChange",
+	"fileType": "change",
+	"changeType": "propertyChange",
+	"reference": "SupplierProject.Component",
+	"packageName": "$TMP",
+	"content": {
+		"property": "hAlign",
+		"oldValue": "Right",
+		"newValue": "Center"
+	},
+	"selector": {
+		"id": "SupplierProject::sap.suite.ui.generic.template.ListReport.view.ListReport::Suppliers--listReport-SupplierId",
+		"type": "sap.m.Column",
+		"idIsLocal": false
+	},
+	"layer": "VENDOR",
+	"texts": {},
+	"namespace": "apps/SupplierProject/changes/",
+	"creation": "2017-01-09T05:48:17.811Z",
+	"originalLanguage": "EN",
+	"conditions": {},
+	"context": "",
+	"support": {
+		"generator": "Change.createInitialFileContent",
+		"service": "",
+		"user": ""
+	}
+}
